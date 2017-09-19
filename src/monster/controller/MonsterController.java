@@ -2,10 +2,18 @@ package monster.controller;
 
 import monster.model.MarshmallowMonster;
 import java.util.Scanner;
+import monster.view.MonsterDisplay;
 
 public class MonsterController 
 	{	
+		private MonsterDisplay popup;
+		
+		public MonsterController()
+		{
+			popup = new MonsterDisplay();
+		}
 	
+		
 		public void start()
 		{
 			MarshmallowMonster basic = new MarshmallowMonster();
@@ -70,14 +78,14 @@ public class MonsterController
 			
 			if(food == currentMonster.getTentacleAmount())
 			{
-				System.out.println("wut the hek bro, u ate all my tenticles)");
+				System.out.println("wut the hek bro, u ate all my tenticles");
 			}
 			else
 			{
 				System.out.println("More Likely");
 			}
 		
-			
+			popup.displayText("Hi there ready to play????????????????");
 			
 			
 			
