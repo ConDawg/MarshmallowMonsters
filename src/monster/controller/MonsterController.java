@@ -26,7 +26,23 @@ public class MonsterController
 			int consumed = myScanner.nextInt();
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 			System.out.println(currentMonster);	
+			{
+			//consumed = myScanner.nextInt();
+			int eyeEat = myScanner.nextInt();
 			
+			if(eyeEat == 0)
+			{
+				System.out.println("Freals?, I think the eyes are the best part!");
+			}
+			else if(eyeEat < 0)
+			{
+				System.out.println("Silly billy, you cant eat negative eyeholes!");
+			}
+			else if(eyeEat - currentMonster.getEyeCount() > 0)
+			{
+				System.out.println("you are being a little too silly");
+			}
+			}
 			System.out.println("How many arms would you like to consume?, I have " + currentMonster.getArmCount());
 			//consumed = myScanner.nextInt();
 			int armEat = myScanner.nextInt();
@@ -39,11 +55,16 @@ public class MonsterController
 			{
 				System.out.println("Math is hard for you - it is not possible to eat a negative amount");
 			}
+			else if(armEat - currentMonster.getArmCount() > 0)
+			{
+				System.out.println("you are not allowed to eat more than exists on me rarXD");
+			}
 			else
 			{
 				currentMonster.setArmCount(currentMonster.getArmCount() - armEat);
 				System.out.println("OK, now I have this many arms " + currentMonster.getArmCount());
 			}
+			
 			
 			myScanner.close();
 		}
