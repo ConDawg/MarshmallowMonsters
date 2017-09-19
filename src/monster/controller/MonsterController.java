@@ -65,6 +65,21 @@ public class MonsterController
 				System.out.println("OK, now I have this many arms " + currentMonster.getArmCount());
 			}
 			
+			System.out.println("How many tentacles do you wanna eat? I have" + currentMonster.getTentacleAmount());
+			double food = myScanner.nextDouble();
+			
+			if(food == currentMonster.getTentacleAmount())
+			{
+				System.out.println("wut the hek bro, u ate all my tenticles)");
+			}
+			else
+			{
+				System.out.println("More Likely");
+			}
+		
+			
+			
+			
 			
 			myScanner.close();
 		}
