@@ -13,16 +13,18 @@ public class MonsterController
 			popup = new MonsterDisplay();
 		}
 	
-		
 		public void start()
 		{
 			MarshmallowMonster basic = new MarshmallowMonster();
-			System.out.println(basic);
+//			System.out.println(basic);
+			popup.displayText(basic.toString());
 			MarshmallowMonster Bonquisha = new MarshmallowMonster("Silly Bonquisha monster", 3, 6,  3.0, true);
-			System.out.println(Bonquisha);
-			System.out.println("I am gettin hungies, Imma eat Bonquisha's arms");
+//			System.out.println(Bonquisha);
+			popup.displayText(Bonquisha.toString());
+//			System.out.println("I am gettin hungies, Imma eat Bonquisha's arms");
+			popup.displayText("I am gettin hungies, Imma eat Bonquisha's arms");
 			Bonquisha.setArmCount(Bonquisha.getArmCount() - 1);
-			System.out.println(Bonquisha);
+//			popup.displayText(Bonquisha.toString());
 			
 			interactWithMonster(Bonquisha);
 		}	
@@ -30,10 +32,16 @@ public class MonsterController
 		private void interactWithMonster(MarshmallowMonster currentMonster)
 		{
 			Scanner myScanner = new Scanner(System.in);
-			System.out.println(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many");
-			int consumed = myScanner.nextInt();
+//			System.out.println(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many");
+			int consumed;
+			String response = popup.getResponse(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many");
+			
+			consumed = Integer.parseInt(response);
+					
+//			int consumed = myScanner.nextInt();
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 			System.out.println(currentMonster);	
+			System.out.println("How many arms are you interested in eating?, I have" + currentMonster.getArmCount());
 			{
 			//consumed = myScanner.nextInt();
 			int eyeEat = myScanner.nextInt();
@@ -86,9 +94,27 @@ public class MonsterController
 			}
 		
 			popup.displayText("Hi there ready to play????????????????");
-			
+			String answer = popup.getResponse("What is the air speed of a coconut laden swallow?");
+			System.out.println(answer);
 			
 			
 			myScanner.close();
 		}
-}
+		
+		//Helper methods
+		private boolean isValidInterger(String sample)
+		{
+			boolean valid = false;
+			
+			try
+			{
+				Integer.parseInt(sample);
+				valid = true;
+			}
+			catch(NumberFormatException error)
+			{
+				popup.displayText("You need to imput an int, " + sample + "is not valid.");
+			}
+			return valid;
+		}
+	}	
