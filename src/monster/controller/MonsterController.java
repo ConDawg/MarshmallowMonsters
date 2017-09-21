@@ -22,7 +22,7 @@ public class MonsterController
 //			System.out.println(Bonquisha);
 			popup.displayText(Bonquisha.toString());
 //			System.out.println("I am gettin hungies, Imma eat Bonquisha's arms");
-			popup.displayText("I am gettin hungies, Imma eat Bonquisha's arms");
+			popup.displayText("I am gettin hungies, Imma eat Bonquisha's eyes");
 			Bonquisha.setArmCount(Bonquisha.getArmCount() - 1);
 //			popup.displayText(Bonquisha.toString());
 			
@@ -33,15 +33,17 @@ public class MonsterController
 		{
 			Scanner myScanner = new Scanner(System.in);
 //			System.out.println(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many");
-			int consumed;
+			int consumed = 0;
 			String response = popup.getResponse(currentMonster.getName() + " wants to know how many eyes you want to eat, please type in how many");
 			
+			if(isValidInterger(response))
+			{
 			consumed = Integer.parseInt(response);
-					
+			}	
+			
 //			int consumed = myScanner.nextInt();
 			currentMonster.setEyeCount(currentMonster.getEyeCount() - consumed);
 			System.out.println(currentMonster);	
-			System.out.println("How many arms are you interested in eating?, I have" + currentMonster.getArmCount());
 			{
 			//consumed = myScanner.nextInt();
 			int eyeEat = myScanner.nextInt();
@@ -59,7 +61,14 @@ public class MonsterController
 				System.out.println("you are being a little too silly");
 			}
 			}
-			System.out.println("How many arms would you like to consume?, I have " + currentMonster.getArmCount());
+//			System.out.println("How many arms would you like to consume?, I have " + currentMonster.getArmCount());
+			String solute = popup.getResponse(currentMonster.getName() + " wants to know how many arms you want to eat, please type how many");
+			
+			if(isValidInterger(solute));
+			{
+			consumed = Integer.parseInt(solute);
+			}
+			
 			//consumed = myScanner.nextInt();
 			int armEat = myScanner.nextInt();
 			
