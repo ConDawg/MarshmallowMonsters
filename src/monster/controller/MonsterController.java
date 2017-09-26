@@ -15,6 +15,15 @@ public class MonsterController
 	
 		public void start()
 		{
+			int count = 0;
+			while(count < 10)
+			{
+				popup.displayText("Am I not the coolest???");
+				count +=2;
+			}
+			
+			
+			
 			MarshmallowMonster basic = new MarshmallowMonster();
 //			System.out.println(basic);
 			popup.displayText(basic.toString());
@@ -130,7 +139,7 @@ public class MonsterController
 			myScanner.close();
 		}
 		
-		//Helper methods
+		//Helper methods   
 		private boolean isValidInterger(String sample)
 		{
 			boolean valid = false;
