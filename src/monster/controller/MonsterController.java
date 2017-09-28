@@ -3,14 +3,18 @@ package monster.controller;
 import monster.model.MarshmallowMonster;
 import java.util.Scanner;
 import monster.view.MonsterDisplay;
+import java.util.List;
+import java.util.ArrayList;
 
 public class MonsterController 
 	{	
 		private MonsterDisplay popup;
+		private List<MarshmallowMonster> monsterList;
 		
 		public MonsterController()
 		{
 			popup = new MonsterDisplay();
+			monsterList = new ArrayList <MarshmallowMonster>();
 		}
 	
 		public void start()
@@ -23,7 +27,7 @@ public class MonsterController
 //			}
 			
 			for(int loop = 0; loop < 10; loop += 1)
-			{
+			{    
 				popup.displayText("this is loop # " + (loop + 1) + " of ten");
 			}
 			
@@ -41,9 +45,30 @@ public class MonsterController
 			Bonquisha.setArmCount(Bonquisha.getArmCount() - 1);
 //			popup.displayText(Bonquisha.toString());
 			
-			interactWithMonster(Bonquisha);
+			monsterList.add(basic);
+			monsterList.add(Bonquisha);
+			useList();
+			
+//			interactWithMonster(Bonquisha);
 		}	
-	 
+		private void useList()
+		{
+			for (int index = 0; index < monsterList.size(); index++)
+			{
+				MarshmallowMonster currentMonster = monsterList.get(index);
+				popup.displayText(currentMonster.getName());
+				String updateName = popup.getResponse("What should my new name be?");
+				currentMonster.setName(updateName);
+				popup.displayText("My new name is " + currentMonster.getName());
+			}
+			
+			for (MarshmallowMonster current : monsterList)
+			{
+				popup.displayText("My name is " + current.getName());
+				
+			}
+			
+		}
 		private void interactWithMonster(MarshmallowMonster currentMonster)
 		{
 			Scanner myScanner = new Scanner(System.in);
