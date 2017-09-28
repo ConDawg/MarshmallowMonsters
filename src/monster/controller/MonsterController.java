@@ -95,42 +95,7 @@ public class MonsterController
 				popup.displayText("you are being a little too silly");
 			}
 			}
-//			System.out.println("How many arms would you like to consume?, I have " + currentMonster.getArmCount());
-		//	String solute = popup.getResponse(currentMonster.getName() + " wants to know how many arms you want to eat, please type how many");
-			
-			
-			
-//			if(isValidInterger(solute));
-//			{
-//			consumed = Integer.parseInt(solute);
-//			}
-//			
-//			//consumed = myScanner.nextInt();
-//			int butt = myScanner.nextInt();
-//			
-//			if(butt == 0)
-//			{
-////				System.out.println("Not hungry?  That sux bro...");
-//				popup.displayText("not hungry?  That sux bro...");
-//			}
-//			else if(butt < 0)
-//			{
-////				System.out.println("Math is hard for you - it is not possible to eat a negative amount");
-//				popup.displayText("Math is hard for you - it is not possible to eat a negative amount");
-//			}
-//			else if(butt - currentMonster.getArmCount() > 0)
-//			{
-//		//		System.out.println("you are not allowed to eat more than exists on me");
-//				popup.displayText("you are not allowed to eat more than exists on me");
-//			}
-//			else
-//			{
-//				currentMonster.setArmCount(currentMonster.getArmCount() - armEat);
-////				System.out.println("OK, now I have this many arms " + currentMonster.getArmCount());
-//				popup.displayText("OK, now I have this many arms: " + currentMonster.getArmCount());
-//			}
-//			
-//			
+
 			
 //			System.out.println("How many tentacles do you wanna eat? I have" + currentMonster.getTentacleAmount());
 			popup.getResponse("How many tentacles do you wanna eat? I have" + currentMonster.getTentacleAmount());
